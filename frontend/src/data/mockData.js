@@ -1,0 +1,17 @@
+export const mockStocks = [
+    { symbol: 'AAPL', price: 180.25, changePercent: 1.23 },
+    { symbol: 'GOOGL', price: 2750.5, changePercent: -0.45 },
+    { symbol: 'AMZN', price: 3450.75, changePercent: 0.98 },
+    { symbol: 'MSFT', price: 299.99, changePercent: -1.12 },
+    { symbol: 'TSLA', price: 720.1, changePercent: 2.34 },
+    { symbol: 'V', price: 180.25, changePercent: 1.23 },
+    { symbol: 'ABC', price: 2750.5, changePercent: -0.45 },
+    { symbol: 'XYZ', price: 3450.75, changePercent: 0.98 },
+    { symbol: 'META', price: 299.99, changePercent: -1.12 },
+    { symbol: 'MASTER', price: 720.1, changePercent: 2.34 },
+    { symbol: 'BTC', price: 180.25, changePercent: 1.23 },
+    { symbol: 'RIL', price: 2750.5, changePercent: -0.45 },
+    { symbol: 'TATASTL', price: 3450.75, changePercent: 0.98 },
+    { symbol: 'TCS', price: 299.99, changePercent: -1.12 },
+    { symbol: 'CDSL', price: 720.1, changePercent: 2.34 },
+];
