@@ -18,7 +18,7 @@ export default function Home() {
     (async () => {
       try {
         setLoading(true);
-        const res = await fetch('/src/data/company_tickers.json');
+        const res = await fetch('/public/company_tickers.json');
         if (!res.ok) throw new Error(`Failed to load company_tickers.json (${res.status})`);
         const raw = await res.json();
 
