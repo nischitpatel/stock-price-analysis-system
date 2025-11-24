@@ -10,7 +10,7 @@ import {
 
 // If you use a Vite proxy, this baseURL is correct.
 // Otherwise change to 'http://localhost:5000/api'
-const api = axios.create({ baseURL: 'http://localhost:5000/api', timeout: 10000 });
+const api = axios.create({ baseURL: 'https://stock-price-analysis-system.onrender.com/api', timeout: 10000 });
 
 async function fetchValuation(symbol) {
   const { data } = await api.get(`/stocks/valuation/${symbol}`, {

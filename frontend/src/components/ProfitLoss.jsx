@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
 // Change to '/api' if you use Vite proxy
-const BASE = 'http://localhost:5000/api';
+const BASE = 'https://stock-price-analysis-system.onrender.com/api';
 
 async function fetchIncomeStatement(symbol) {
   const url = `${BASE}/stocks/income-statement/normalized/${symbol}`;
