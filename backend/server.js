@@ -13,7 +13,7 @@ app.use(cors({
     origin: [
       "http://localhost:5173",
       "http://localhost:3000",
-      "https://stock-price-analysis-system.vercel.app/"
+      "https://stock-price-analysis-system.vercel.app"
     ],
     methods: "GET,POST",
     credentials: true
