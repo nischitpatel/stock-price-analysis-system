@@ -8,7 +8,8 @@ import {
   Tooltip
 } from 'recharts';
 
-const api = axios.create({ baseURL: 'https://stock-price-analysis-system.onrender.com/api', timeout: 10000 });
+// timeout: 10000 
+const api = axios.create({ baseURL: 'https://stock-price-analysis-system.onrender.com/api'});
 
 async function fetchOwnership(symbol) {
   const { data } = await api.get(`/stocks/ownership/${symbol}`, {

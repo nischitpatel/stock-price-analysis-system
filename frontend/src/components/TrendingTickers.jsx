@@ -4,7 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
 // If you use a Vite proxy, axios can just hit /api
-const api = axios.create({ baseURL: 'https://stock-price-analysis-system.onrender.com/api', timeout: 10000 });
+// timeout: 10000
+const api = axios.create({ baseURL: 'https://stock-price-analysis-system.onrender.com/api' });
 
 async function fetchTrending() {
   const { data } = await api.get('/stocks/trending', {
