@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
-const BASE = 'http://localhost:5000/api'; // or '/api' if using a Vite proxy
+// const BASE = 'http://localhost:5000/api'; // or '/api' if using a Vite proxy
+const BASE = "https://stock-price-analysis-system.onrender.com/api"
 
 function toMillis(x) {
   const d = new Date(x);
