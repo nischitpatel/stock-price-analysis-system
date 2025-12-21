@@ -7,12 +7,14 @@ import {
   PieChart, Pie, Cell,
   Tooltip
 } from 'recharts';
+import api from '../lib/apiClient';
 
 // timeout: 10000 
-const api = axios.create({ baseURL: 'https://stock-price-analysis-system.onrender.com/api'});
+// const api = axios.create({ baseURL: 'https://stock-price-analysis-system.onrender.com/api'});
 
 async function fetchOwnership(symbol) {
-  const { data } = await api.get(`/stocks/ownership/${symbol}`, {
+  const url = `/stocks/ownership/${symbol}`;
+  const { data } = await api.get(url, {
     headers: { 'Cache-Control': 'no-store' },
     params: { _ts: Date.now() },
   });

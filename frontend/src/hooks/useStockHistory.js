@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import api from '../lib/apiClient';
 
 // const BASE = 'http://localhost:5000/api'; // or '/api' if using a Vite proxy
-const BASE = "https://stock-price-analysis-system.onrender.com/api"
+// const BASE = "https://stock-price-analysis-system.onrender.com/api"
 
 function toMillis(x) {
   const d = new Date(x);
@@ -10,8 +10,8 @@ function toMillis(x) {
 }
 
 async function fetchHistory(symbol, range) {
-  const url = `${BASE}/stocks/history/${symbol}/${range}`;
-  const { data } = await axios.get(url, {
+  const url = `/stocks/history/${symbol}/${range}`;
+  const { data } = await api.get(url, {
     headers: { 'Cache-Control': 'no-store' },
     params: { _ts: Date.now() }, // avoid 304s during dev
   });

@@ -1,14 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-
-// If you use a Vite proxy, axios can just hit /api
-// timeout: 10000
-const api = axios.create({ baseURL: 'https://stock-price-analysis-system.onrender.com/api' });
+import api from '../lib/apiClient';
 
 async function fetchTrending() {
-  const { data } = await api.get('/stocks/trending', {
+  const url = '/stocks/trending';
+  const { data } = await api.get(url, {
     headers: { 'Cache-Control': 'no-store' },
     params: { _ts: Date.now() }, // avoid dev-time 304/no-body
   });
@@ -27,7 +24,7 @@ export default function TrendingTickers() {
   const { data: symbols, isLoading, error } = useQuery({
     queryKey: ['trending'],
     queryFn: fetchTrending,
-    staleTime: 5 * 60 * 1000,        // cache for 5 min
+    staleTime: 5 * 60 * 1000,        // cache for 15 min
     refetchOnWindowFocus: false,
     refetchOnReconnect: false,
     retry: 1,
@@ -38,7 +35,7 @@ export default function TrendingTickers() {
   return (
     <div className="w-full max-w-2xl mx-auto mt-6">
       <div className="flex items-center justify-between mb-2">
-        <h2 className="text-black text-lg font-bold">Today's trending stocks</h2>
+        <h2 className="text-black text-lg font-bold">What's trending today</h2>
         {/* jobTimestamp etc. could go here if you want */}
       </div>
 

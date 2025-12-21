@@ -7,14 +7,16 @@ import {
   LineChart, Line,
   XAxis, YAxis, Tooltip, CartesianGrid
 } from 'recharts';
+import api from '../lib/apiClient';
 
 // If you use a Vite proxy, this baseURL is correct.
 // Otherwise change to 'http://localhost:5000/api'
 // timeout: 10000
-const api = axios.create({ baseURL: 'https://stock-price-analysis-system.onrender.com/api' });
+// const api = axios.create({ baseURL: 'https://stock-price-analysis-system.onrender.com/api' });
 
 async function fetchValuation(symbol) {
-  const { data } = await api.get(`/stocks/valuation/${symbol}`, {
+  const url = `/stocks/valuation/${symbol}`;
+  const { data } = await api.get(url, {
     headers: { 'Cache-Control': 'no-store' },
     params: { _ts: Date.now() }, // avoid 304/no-body during dev
   });

@@ -2,13 +2,16 @@ import React, { useMemo } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import api from '../lib/apiClient';
 
 // Change BASE to '/api' if you use a Vite proxy
-const BASE = 'https://stock-price-analysis-system.onrender.com/api';
+// const BASE = 'https://stock-price-analysis-system.onrender.com/api';
 
 async function fetchBalanceSheet(symbol) {
-  const url = `${BASE}/stocks/balance-sheet/normalized/${symbol}`;
-  const { data } = await axios.get(url, {
+  // const url = `${BASE}/stocks/balance-sheet/normalized/${symbol}`;
+  const url = `/stocks/balance-sheet/normalized/${symbol}`;
+  // const { data } = await axios.get(url, {
+  const {data} = await api.get(url, {
     headers: { 'Cache-Control': 'no-store' },
     params: { _ts: Date.now() }, // avoid 304/no-body in dev
   });

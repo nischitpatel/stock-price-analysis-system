@@ -7,7 +7,8 @@ export function useStockQuote(symbol) {
     enabled: !!symbol,                   // only runs when we have a symbol
     queryFn: async () => {
       // Example backend route: GET /api/quotes/:symbol
-      const { data } = await api.get(`/stocks/price/${symbol}`);
+      url = `/stocks/price/${symbol}`;
+      const { data } = await api.get(url);
       return data;
     },
     refetchInterval: 10_000,             // refresh every 10s (tweak as needed)
