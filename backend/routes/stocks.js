@@ -14,6 +14,9 @@ import { shareholding } from "../controllers/ownership.controller.js";
 import { marketNews } from "../controllers/news.controller.js";
 import { companyLatestNews } from "../controllers/news.controller.js";
 import { getUsTop5Indices } from "../services/indices.service.js";
+import { getTickerStrip } from "../controllers/tickerstrip.controller.js";
+// import { tickerStripService } from '../services/tickerstrip.service.js';
+// import { tickerStrip } from "../services/tickerstrip.service.js";
 
 const yahooFinance = new YahooFinance();
 
@@ -126,6 +129,19 @@ router.get("/news/:symbol", asyncHandler(companyLatestNews));
 
 // US Top 5 Indices
 router.get("/indices/us/top5", asyncHandler(getUsTop5Indices));
+
+// Ticker strip to display on top of the page
+router.get("/ticker-strip", asyncHandler(getTickerStrip));
+
+// router.get('/most-active', async (req, res) => {
+//     try {
+//       const data = await tickerStrip();
+//       res.json(data);
+//     } catch (err) {
+//       console.error('Route error /stocks/most-active', err);
+//       res.status(500).json({ error: 'Failed to fetch most active stocks' });
+//     }
+//   });
 
 export default router;
 

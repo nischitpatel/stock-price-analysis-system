@@ -1,5 +1,4 @@
 // Entry point for the backend server
-
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
